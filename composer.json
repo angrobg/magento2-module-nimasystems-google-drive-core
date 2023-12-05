@@ -1,0 +1,27 @@
+{
+    "name": "nimasystems/module-google-drive-core",
+    "description": "Google Drive Core",
+    "config": {
+        "sort-packages": true
+    },
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Nimasystems\\GoogleDriveCore\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Martin Kovachev",
+            "email": "miracle@nimasystems.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "~7.4",
+        "magento/framework": "103.0.*"
+    }
+}

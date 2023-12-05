@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Nimasystems (info@nimasystems.com). All rights reserved.
+ * Please visit Nimasystems.com for license details
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Nimasystems_GoogleDriveCore" setup_version="1.0.0">
+        <sequence>
+            <module name="Nimasystems_Base"/>
+        </sequence>
+    </module>
+</config>
