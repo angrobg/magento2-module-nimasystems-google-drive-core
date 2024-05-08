@@ -19,7 +19,7 @@ class Data extends AbstractHelper
 {
     const MODULE_NAME = 'Nimasystems_GoogleDriveCore';
 
-    const XML_PATH = 'googledrivecore/googledrivecore/';
+    const XML_PATH = 'googledrivecore/google_drive_settings/';
 
     /**
      * @var Context

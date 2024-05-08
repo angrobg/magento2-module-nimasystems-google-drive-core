@@ -22,6 +22,15 @@
     "minimum-stability": "stable",
     "require": {
         "php": "~7.4",
-        "magento/framework": "103.0.*"
+        "magento/framework": "103.0.*",
+        "google/apiclient": "^2.14.0"
+    },
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Drive"
+        ]
     }
 }

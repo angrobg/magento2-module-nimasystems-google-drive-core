@@ -9,6 +9,7 @@
     <default>
         <googledrivecore>
             <google_drive_settings>
+                <service_account></service_account>
             </google_drive_settings>
         </googledrivecore>
     </default>
