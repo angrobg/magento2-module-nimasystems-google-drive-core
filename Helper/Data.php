@@ -10,6 +10,7 @@ namespace Nimasystems\GoogleDriveCore\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
+use Magento\Framework\Filesystem\DirectoryList;
 use Magento\Framework\Module\ModuleListInterface;
 use Magento\Framework\Url;
 use Magento\Store\Model\ScopeInterface;
@@ -21,10 +22,17 @@ class Data extends AbstractHelper
 
     const XML_PATH = 'googledrivecore/google_drive_settings/';
 
+    const STORE_DIR = 'google_drive';
+
     /**
      * @var Context
      */
     protected Context $context;
+
+    /**
+     * @var DirectoryList
+     */
+    protected DirectoryList $directoryList;
 
     /**
      * @var StoreManagerInterface
@@ -46,18 +54,21 @@ class Data extends AbstractHelper
      * @param Context $context
      * @param StoreManagerInterface $storeManager
      * @param ModuleListInterface $moduleList
+     * @param DirectoryList $directoryList
      * @param Url $urlHelper
      */
     public function __construct(
         Context               $context,
         StoreManagerInterface $storeManager,
         ModuleListInterface   $moduleList,
+        DirectoryList         $directoryList,
         Url                   $urlHelper
     )
     {
         $this->context = $context;
         $this->storeManager = $storeManager;
         $this->moduleList = $moduleList;
+        $this->directoryList = $directoryList;
         $this->urlHelper = $urlHelper;
 
         parent::__construct($context);
@@ -87,6 +98,28 @@ class Data extends AbstractHelper
         return $this->scopeConfig->isSetFlag(
             $path . $code, ScopeInterface::SCOPE_STORE, $storeId
         );
+    }
+
+    public function getGoogleServiceDir(): string
+    {
+        return $this->directoryList->getPath('var') . DS . Data::STORE_DIR;
+    }
+
+    public function getGoogleServiceAccount(): ?string
+    {
+        $filename = $this->getStoreConfig('service_account_file');
+
+        if (!$filename) {
+            return null;
+        }
+
+        $filename = $this->getGoogleServiceDir() . DS . $filename;
+
+        if (!file_exists($filename)) {
+            return null;
+        }
+
+        return file_get_contents($filename);
     }
 
     /**

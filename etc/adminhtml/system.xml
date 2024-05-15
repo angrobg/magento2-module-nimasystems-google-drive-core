@@ -24,10 +24,11 @@
                     <label>Module version</label>
                     <frontend_model>Nimasystems\GoogleDriveCore\Block\Adminhtml\System\Config\Form\Field\Version</frontend_model>
                 </field>
-                <field id="service_account" translate="label" type="textarea" sortOrder="10" showInDefault="1"
-                       showInWebsite="1"
-                       showInStore="1" canRestore="1">
+                <field id="service_account_file" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File"
+                       sortOrder="10" showInDefault="1" showInWebsite="1">
                     <label>Service Account</label>
+                    <backend_model>Nimasystems\GoogleDriveCore\Model\Config\Backend\File</backend_model>
+                    <comment><![CDATA[Allowed file types: json]]></comment>
                 </field>
             </group>
         </section>

@@ -47,7 +47,7 @@ class Drive extends AbstractHelper
 
     public function getClient(): Client
     {
-        $serviceAccount = $this->dataHelper->getStoreConfig('service_account');
+        $serviceAccount = $this->dataHelper->getGoogleServiceAccount();
 
         if (!$serviceAccount) {
             throw new Exception('Service account not configured');
