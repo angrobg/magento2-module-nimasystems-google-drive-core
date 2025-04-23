@@ -20,7 +20,6 @@ use Throwable;
 
 class Drive extends AbstractHelper
 {
-    // TODO: it seems this is always limited by Google to a maximum of 100
     public const DEFAULT_PAGE_SIZE = 1000;
 
     protected Data $dataHelper;
@@ -180,7 +179,6 @@ class Drive extends AbstractHelper
             $isFolder = $fileType == 'application/vnd.google-apps.folder';
 
             if ($isFolder) {
-                // TODO: bug - folder name is still not available this way
                 $this->cachedDirs[$folderId] = $fileName;
             }
 
